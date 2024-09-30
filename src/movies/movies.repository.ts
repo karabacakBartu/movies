@@ -12,7 +12,6 @@ export class MovieRepository {
   /**
    *
    * @param input
-   * @returns
    */
   async create(input: IMovie) {
     return await this.movieModel.create(input);
@@ -21,10 +20,10 @@ export class MovieRepository {
   async findAll() {
     return await this.movieModel.find().lean().exec();
   }
+
   /**
    *
    * @param id
-   * @returns
    */
   async findById(id: string) {
     return await this.movieModel.findOne({ _id: id }).lean().exec();
@@ -33,15 +32,14 @@ export class MovieRepository {
   /**
    *
    * @param name
-   * @returns
    */
   async getMovieByName(name: string) {
     return await this.movieModel.findOne({ name }).lean().exec();
   }
+
   /**
    *
    * @param id
-   * @returns
    */
   async removeById(id: string) {
     return await this.movieModel.findByIdAndDelete({ _id: id }).lean().exec();

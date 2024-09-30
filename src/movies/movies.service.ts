@@ -3,7 +3,6 @@ import { IMovie } from './interface/IMovie';
 import { HttpService } from '@nestjs/axios';
 import { MovieRepository } from './movies.repository';
 import {
-  ConflictException,
   HttpException,
   HttpStatus,
   Injectable,
@@ -28,11 +27,10 @@ export class MoviesService {
     try {
       const filmIds = await this.fetchOldestMovies();
 
-      await filmIds.map((id) => this.saveMovie(id));
+      await filmIds.map((id: string) => this.saveMovie(id));
 
       return { message: 'Succesful!' };
     } catch (error) {
-      console.error('An error occurred:', error);
       throw new InternalServerErrorException('An unexpected error occurred');
     }
   }

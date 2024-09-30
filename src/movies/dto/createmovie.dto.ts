@@ -4,7 +4,6 @@ import {
   IsArray,
   ArrayNotEmpty,
   ValidateNested,
-  IsUUID,
   IsNotEmpty,
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
