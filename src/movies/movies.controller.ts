@@ -36,6 +36,7 @@ export class MovieController {
     status: 200,
     description: 'List of all movies.',
   })
+  @ApiResponse({ status: 404, description: 'Movies not found.' })
   async findAll(): Promise<IMovie[]> {
     return this.moviesService.findAll();
   }
@@ -54,7 +55,7 @@ export class MovieController {
   @Post('create')
   @ApiBody({ type: CreateMovieDto })
   @ApiResponse({ status: 201, description: 'The movie is saved successfully' })
-  @ApiResponse({ status: 409, description: 'Movie not found.' })
+  @ApiResponse({ status: 409, description: 'Movie is already exist.' })
   async save(@Body() createMovieDto: CreateMovieDto): Promise<IMovie> {
     return this.moviesService.create(createMovieDto);
   }
