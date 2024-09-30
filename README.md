@@ -1,85 +1,129 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# How To Use Movies Application with NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This guide will help you set up my NestJS project from GitHub on your local machine.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Prerequisites
 
-## Description
+1. **Install Node.js and npm**
+   - Go to the [Node.js website](https://nodejs.org/).
+   - Download the LTS version (Long Term Support).
+   - Follow the installation instructions for your operating system.
+   - After installation, check if Node.js and npm (Node Package Manager) are installed by running the following commands in your terminal or command prompt:
+     ```bash
+     node -v
+     npm -v
+     ```
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+2. **Install Git**
+   - Go to the [Git website](https://git-scm.com/).
+   - Download and install Git for your operating system.
+   - After installation, check if Git is installed by running:
+     ```bash
+     git --version
+     ```
 
-## Project setup
+## Step 1: Clone the Project
 
-```bash
-$ npm install
-```
+1. **Open a Terminal or Command Prompt**
+   - Navigate to the folder where you want to download the project.
 
-## Compile and run the project
+2. **Clone the Repository**
+   - Use the following command to clone the project from GitHub. 
+     ```bash
+     git clone https://github.com/karabacakBartu/movies.git
+     ```
 
-```bash
-# development
-$ npm run start
+3. **Navigate into the Project Directory**
+   - Change into the project directory with:
+     ```bash
+     cd movies
+     ```
 
-# watch mode
-$ npm run start:dev
+## Step 2: Install Project Dependencies
 
-# production mode
-$ npm run start:prod
-```
+1. **Install Dependencies**
+   - Run the following command to install all the necessary packages for the project:
+     ```bash
+     npm install
+     ```
 
-## Run tests
+## Step 3: Configure Environment Variables
 
-```bash
-# unit tests
-$ npm run test
+1. **Check for .env File**
+   - Many projects require environment variables to be set. Look for a `.env.example` file or similar.
+   - If it exists, copy it to create your own `.env` file:
+     ```bash
+     cp .env.example .env
+     ```
 
-# e2e tests
-$ npm run test:e2e
+2. **Edit the .env File**
+   - Open the `.env` file in a text editor and update any configuration values as needed (e.g., database connection strings, API keys).
+  
+      ```bash
+     TMDB_API_KEY=TMDB_API_KEY    --> This is your TMDB API KEY; you have to replace the value on the right side of the equality symbol with your key.
+     TMDB_BASE_URL=TMDB_BASE_URL  --> This is your TMDB BASE URL; "https://api.themoviedb.org/3" you have to replace the value on the right side of the equality symbol with this url.
+     MONGODB_URI=MONGODB_URI      --> This is your TMDB API KEY; you have to replace the value on the right side of the equality symbol with your key.
+      
+     DB_USER=DB_USER              --> This represents your <username> in the MongoDB connection string.
+     DB_PASSWORD=DB_PASSWORD      --> This represents your <password> in the MongoDB connection string.
+     DB_URL=DB_URL                --> "cluster.ypkxw.mongodb.net"
+      
+     PORT=PORT                    --> The choice of port number is up to you, but it is typically set to 3000.
 
-# test coverage
-$ npm run test:cov
-```
 
-## Resources
+     Example env;
+                  DB_USER=username
+                  DB_PASSWORD=pass
+                  DB_URL=cluster.ypkxw.mongodb.net
+                  MONGODB_URI=@/?retryWrites=true&w=majority&appName=Cluster0
+     ```
 
-Check out a few resources that may come in handy when working with NestJS:
+## Step 4: Run the Project
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+1. **Start the Development Server**
+   - Run the following command to start the server:
+     ```bash
+     npm run start:dev
+     # or
+     nest start --watch
+     ```
 
-## Support
+2. **Access the Application**
+   - Open your web browser and go to `http://localhost:3000` (or whatever port your application is configured to use).
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Yes, adding the list of available API endpoints to your `README.md` file would be very helpful for users. Here’s how you can incorporate those endpoints into your documentation:
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Step 5: Accessing the Swagger API Documentation
 
-## License
+1. **Open Swagger UI**
+   - After starting your application, you can access the Swagger API documentation by navigating to the following URL in your web browser:
+     ```plaintext
+     http://localhost:3000/api#
+     ```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+2. **Explore the API Endpoints**
+   - In the Swagger UI, you will see a list of all available API endpoints. Here are some key endpoints you can use:
+
+     - **Fetch and Save Movies**
+       - **GET** `/movies/fetch-and-save`
+       - Description: Fetches and saves movies from the TMDB API.
+
+     - **Find Movie by ID**
+       - **GET** `/movies/find-by-id/{id}`
+       - Description: Retrieves a movie by its UUID.
+
+     - **Find All Movies**
+       - **GET** `/movies/find-all`
+       - Description: Retrieves a list of all movies in the database.
+
+     - **Remove Movie by ID**
+       - **DELETE** `/movies/remove-by-id/{id}`
+       - Description: Deletes a movie from the database using its UUID.
+
+     - **Create a New Movie**
+       - **POST** `/movies/create`
+       - Description: Creates a new movie entry in the database.
+
+3. **Test the API**
+   - You can use the Swagger UI to make API requests directly from your browser. Simply click on an endpoint, fill in the required parameters, and hit the "Execute" button to see the response.
